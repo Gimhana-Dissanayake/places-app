@@ -2,7 +2,7 @@ import React from "react";
 import UsersList from "../components/UsersList";
 
 const Users = () => {
-  const USERS = [
+  const USERS: any = [
     {
       id: "u1",
       name: "Marlon Brando",
