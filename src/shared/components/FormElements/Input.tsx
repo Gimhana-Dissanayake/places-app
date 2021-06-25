@@ -12,6 +12,8 @@ interface IProps {
   errorText?: string;
   validators?: any[];
   onInput: (id: string | undefined, value: string, isValid: boolean) => void;
+  value?: any;
+  valid?: boolean;
 }
 
 interface IState {
