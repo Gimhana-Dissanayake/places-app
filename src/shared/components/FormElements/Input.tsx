@@ -1,4 +1,4 @@
-import { FC, useReducer } from "react";
+import { FC, useEffect, useReducer } from "react";
 import { validate } from "../../util/validators";
 import "./Input.css";
 
@@ -11,6 +11,7 @@ interface IProps {
   rows?: number;
   errorText?: string;
   validators?: any[];
+  onInput: (id: string | undefined, value: string, isValid: boolean) => void;
 }
 
 interface IState {
@@ -50,6 +51,13 @@ const Input: FC<IProps> = (props) => {
     isTouched: false,
     isValid: false,
   });
+
+  const { onInput, id } = props;
+  const { value, isValid } = inputState;
+
+  useEffect(() => {
+    onInput(id, value, isValid);
+  }, [onInput, id, value, isValid]);
 
   const changeHandler = (event: any) => {
     dispatch({
