@@ -5,18 +5,18 @@ import {
   VALIDATOR_MINLENGTH,
   VALIDATOR_REQUIRE,
 } from "../../shared/util/validators";
-import "./NewPlace.css";
+import "./PlaceForm.css";
+
+interface IInputField {
+  value: string;
+  isValid: boolean;
+}
 
 interface IState {
   inputs: {
-    title: {
-      value: string;
-      isValid: boolean;
-    };
-    description: {
-      value: string;
-      isValid: boolean;
-    };
+    title: IInputField;
+    description: IInputField;
+    address: IInputField;
   };
   isValid: boolean;
 }
@@ -65,6 +65,10 @@ const NewPlace = () => {
         isValid: false,
       },
       description: {
+        value: "",
+        isValid: false,
+      },
+      address: {
         value: "",
         isValid: false,
       },
