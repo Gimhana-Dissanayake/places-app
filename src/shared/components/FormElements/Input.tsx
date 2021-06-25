@@ -12,8 +12,8 @@ interface IProps {
   errorText?: string;
   validators?: any[];
   onInput: (id: string | undefined, value: string, isValid: boolean) => void;
-  value?: any;
-  valid?: boolean;
+  initialValue?: any;
+  initialValid?: boolean;
 }
 
 interface IState {
@@ -49,9 +49,9 @@ const inputReducer = (state: IState, action: IAction) => {
 
 const Input: FC<IProps> = (props) => {
   const [inputState, dispatch] = useReducer(inputReducer, {
-    value: props.value || "",
+    value: props.initialValue || "",
     isTouched: false,
-    isValid: props.valid || false,
+    isValid: props.initialValid || false,
   });
 
   const { onInput, id } = props;
