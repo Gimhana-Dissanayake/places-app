@@ -6,7 +6,7 @@ import "./PlaceList.css";
 
 interface IItem {
   id: string;
-  imageUrl: string;
+  image: string;
   title: string;
   description: string;
   address: string;
@@ -35,7 +35,7 @@ const PlaceList: FC<IProps> = (props) => {
         <PlaceItem
           key={place.id}
           id={place.id}
-          image={place.imageUrl}
+          image={place.image}
           title={place.title}
           description={place.description}
           address={place.address}
