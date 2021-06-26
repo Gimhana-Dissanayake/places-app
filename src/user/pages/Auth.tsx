@@ -62,7 +62,7 @@ const Auth = () => {
     event.preventDefault();
     if (isLoginMode) {
       try {
-        await sendRequest(
+        const responseData = await sendRequest(
           UserAPI.login,
           "POST",
           JSON.stringify({
@@ -73,13 +73,13 @@ const Auth = () => {
             "Content-Type": "application/json",
           }
         );
-        auth.login();
+        auth.login(responseData.user.id);
       } catch (err) {
         console.log(err);
       }
     } else {
       try {
-        await sendRequest(
+        const responseData = await sendRequest(
           UserAPI.signup,
           "POST",
           JSON.stringify({
@@ -92,7 +92,7 @@ const Auth = () => {
           }
         );
 
-        auth.login();
+        auth.login(responseData.user.id);
       } catch (err) {
         console.log(err);
       }
