@@ -4,7 +4,7 @@ import Modal from "./Modal";
 
 interface IProps {
   onClear: () => void;
-  error: boolean;
+  error: string | null;
 }
 
 const ErrorModal: FC<IProps> = (props) => {
