@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useState } from "react";
+import React, { FC, useCallback, useEffect, useState } from "react";
 import {
   BrowserRouter as Router,
   Redirect,
@@ -29,7 +29,15 @@ const App: FC = () => {
   const logout = useCallback(() => {
     setToken(null);
     setUserId(null);
+    localStorage.removeItem("userData");
   }, []);
+
+  useEffect(() => {
+    const storedData = JSON.parse(localStorage.getItem("userData") as string);
+    if (storedData && storedData.token) {
+      login(storedData.userId, storedData.token);
+    }
+  });
 
   let routes;
 
