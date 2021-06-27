@@ -16,6 +16,7 @@ interface IItem {
 
 interface IProps {
   items: IItem[];
+  onDeletePlace: (id: string) => void;
 }
 
 const PlaceList: FC<IProps> = (props) => {
@@ -41,6 +42,7 @@ const PlaceList: FC<IProps> = (props) => {
           address={place.address}
           creatorId={place.creator}
           coordinates={place.location}
+          onDelete={props.onDeletePlace}
         />
       ))}
     </ul>
